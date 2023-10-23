@@ -1,0 +1,29 @@
+{
+  "name": "new-dmytros-video-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'specs/**/*.spec.ts' --require ts-node/register --file ./lauch/index.ts --timeout 500000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illia-lab/new-dmytros-video-frameWork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illia-lab/new-dmytros-video-frameWork/issues"
+  },
+  "homepage": "https://github.com/illia-lab/new-dmytros-video-frameWork#readme",
+  "dependencies": {
+    "@types/mocha": "^10.0.3",
+    "mocha": "^10.2.0",
+    "promod": "^1.9.3",
+    "promod-system": "^2.9.6",
+    "sat-utils": "^1.12.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
