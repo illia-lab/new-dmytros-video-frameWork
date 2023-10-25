@@ -23,16 +23,17 @@ class BaseElement extends BaseLayer {
 
     return await browser.executeScript((element) => element.innerText, this.root.getEngineElement());
   }
+
   async isSameVisibility(data) {
-    return compareToPattern(await this.isDysplayed(), data).result;
+    return compareToPattern(await this.isDisplayed(), data).result;
   }
 
   async isSameContent(data) {
     return compareToPattern(await this.get(), data).result;
   }
 
-  async isDysplayed() {
-    await this.root.isDisplayed();
+  async isDisplayed() {
+    return await this.root.isDisplayed();
   }
 
   async click() {

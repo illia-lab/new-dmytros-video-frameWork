@@ -1,16 +1,22 @@
 import { provider } from '../project';
-import { $ } from '../lib';
-const { main } = provider;
+const { suite, test } = provider.testRunner;
 
-const { I, browser } = provider.actor;
-
-describe('Main page suite', async () => {
-  it('[P] login', async () => {
+suite('Main page suite', async () => {
+  test('[P] login', async ({ I, browser, users }) => {
     await browser.get('http://localhost:4000');
-    await I.onMainPageSetValuesToLoginFragment({ username: 'admin', password: 'admin' });
-    await I.onMainPagePerformOnLoginFragment({ loginButton: 'click' });
-    await I.onTablePagePerformOnTablesHeader({ analytics: 'click' });
+    const result = await I.onMainPageSetValuesToLoginFragment(users.admin)
+      .onMainPagePerformOnLoginFragment({ loginButton: 'click' })
+      .onTablePageWaitForVisibilityStateTablesHeader({ analytics: true })
+      .onTablePageWaitForVisibilityStateMachinesList({
+        length: '>0',
+        workVolume: true,
+        _action: { workVolume: null },
+      })
+      .onTablePageWaitForContentStateMachinesList(
+        { price: (str) => Number.parseInt(str) > 10, _action: { price: null } },
+        { customCheck: true },
+      );
 
-    await browser.sleep(2000);
+    console.log(result);
   });
 });

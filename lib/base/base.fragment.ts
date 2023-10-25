@@ -31,9 +31,11 @@ class BaseFragment extends BaseLayer {
     const result = {};
 
     for (const key of keys) {
+      if (!this[key]) {
+        throw new Error(`${this.id} does not have required property ${key}`);
+      }
       result[key] = await this[key].get(objData[key]);
     }
-
     return result;
   }
 
@@ -66,6 +68,9 @@ class BaseFragment extends BaseLayer {
     const result = {};
 
     for (const key of keys) {
+      if (!this[key]) {
+        throw new Error(`${this.id} doen not have required property ${key}`);
+      }
       result[key] = await this[key].isDisplayed(objData[key]);
     }
 

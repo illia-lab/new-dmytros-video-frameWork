@@ -10,16 +10,26 @@ class BaseLayer {
     this.id = name;
   }
   async waitForRootExist() {
-    await waitForCondition(() => this.root.isPresent(), {
-      timeout: 5_000,
-      message: `${this.id} with selector ${this.root.selector} does not exist`,
-    });
+  await waitForCondition(
+      async () => {
+        return this.root.isPresent();
+      },
+      {
+        timeout: 5_000,
+        message: `${this.id} with selector ${this.root.selector} does not exist`,
+      },
+    );
   }
   async waitForRootVisible() {
-    await waitForCondition(() => this.root.isDisplayed(), {
-      timeout: 5_000,
-      message: `${this.id} with selector ${this.root.selector} does not Visible`,
-    });
+    await waitForCondition(
+      async () => {
+        return this.root.isDisplayed();
+      },
+      {
+        timeout: 5_000,
+        message: `${this.id} with selector ${this.root.selector} does not Visible`,
+      },
+    );
   }
 }
 

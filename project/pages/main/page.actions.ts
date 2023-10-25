@@ -140,7 +140,7 @@ async function onMainPageWaitForVisibilityStateHeaderFragment<Tentry extends The
   data: Tentry,
   opts?: IWaitOpts,
 ): Promise<TheaderWaitForVisibilityStateResult> {
-  return await page.waitForRootVisibilityState({ header: data }, opts);
+  return await page.waitForVisibilityState({ header: data }, opts);
 }
 
 type TloginWaitForVisibilityState = {
@@ -153,7 +153,7 @@ async function onMainPageWaitForVisibilityStateLoginFragment<Tentry extends Tlog
   data: Tentry,
   opts?: IWaitOpts,
 ): Promise<TloginWaitForVisibilityStateResult> {
-  return await page.waitForRootVisibilityState({ login: data }, opts);
+  return await page.waitForVisibilityState({ login: data }, opts);
 }
 
 /** ====================== waitForVisibilityState ================== */
@@ -169,7 +169,7 @@ async function onMainPageWaitForContentStateHeaderFragment<Tentry extends Theade
   data: Tentry,
   opts?: IWaitOpts,
 ): Promise<TheaderWaitForContentStateResult> {
-  return await page.waitForRootContentState({ header: data }, opts);
+  return await page.waitForContentState({ header: data }, opts);
 }
 
 type TloginWaitForContentState = {
@@ -182,7 +182,7 @@ async function onMainPageWaitForContentStateLoginFragment<Tentry extends TloginW
   data: Tentry,
   opts?: IWaitOpts,
 ): Promise<TloginWaitForContentStateResult> {
-  return await page.waitForRootContentState({ login: data }, opts);
+  return await page.waitForContentState({ login: data }, opts);
 }
 
 /** ====================== waitForContentState ================== */

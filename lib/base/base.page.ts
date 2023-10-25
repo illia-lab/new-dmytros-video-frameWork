@@ -50,9 +50,11 @@ class BasePage extends BaseLayer {
     const result = {};
 
     for (const key of keys) {
+      if (!this[key]) {
+        throw new Error(`${this.id} doen not have required property ${key}`);
+      }
       result[key] = await this[key].isDisplayed(objData[key]);
     }
-
     return result;
   }
 
@@ -66,10 +68,10 @@ class BasePage extends BaseLayer {
     }
   }
 
-  async waitForRootVisibilityState(data, opts?: TCompareOpts): Promise<any> {
+  async waitForVisibilityState(data, opts?: TCompareOpts): Promise<any> {
     return await this.executeWaiting(data, opts, 'isDisplayed');
   }
-  async waitForRootContentState(data, opts?: TCompareOpts): Promise<any> {
+  async waitForContentState(data, opts?: TCompareOpts): Promise<any> {
     return await this.executeWaiting(data, opts, 'get');
   }
 
@@ -78,7 +80,8 @@ class BasePage extends BaseLayer {
 
     const dataState = getCollectionRecomposedData(JSON.parse(JSON.stringify(expectedData)), this);
     let errMessage;
-    await waitForCondition(
+
+    return await waitForCondition(
       async () => {
         const callResult = await this[callMethod](dataState);
 
@@ -89,15 +92,16 @@ class BasePage extends BaseLayer {
 
         errMessage = message;
 
+
         return result;
       },
       {
         timeout: 5_000,
         interval: 1000,
-        message: (time, error = 'not exists') => `waiting time: ${time}, internal error: ${error} ${errMessage}`,
+        message: (time, error = 'not exists') => `waiting time: ${time}, internal error: ${error.stack} ${errMessage}`,
       },
     );
   }
-}
 
+}
 export { BasePage };

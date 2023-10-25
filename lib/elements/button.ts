@@ -4,6 +4,7 @@ import { PromodElementType } from 'promod/built/interface';
 export type ButtonAction = 'click' | 'focus' | null;
 export type ButtonGetRes = string;
 export type ButtonIsDispRes = boolean;
+export type ButtonContent = string | ((str:string) => boolean)
 
 class Button extends BaseElement {
   constructor(root: string | PromodElementType, id: string) {

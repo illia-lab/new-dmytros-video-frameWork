@@ -5,13 +5,12 @@ import { Collection } from '../../../lib/base/collection';
 
 class TablePage extends BasePage {
   header: HeaderFragment;
-  machineRow: MachineRowFragment;
-
+  machinesList: MachineRowFragment;
 
   constructor() {
-    super('[id="table_page"]', 'Table page');
+    super('#table_page', 'Table page');
     this.header = this.init('.header', 'Tables header', HeaderFragment);
-    this.machineRow = this.init('.machines_list tbody tr', 'Machines list ', Collection, MachineRowFragment);
+    this.machinesList = this.init('.machines_list tbody tr', 'Machines list ', Collection, MachineRowFragment);
   }
 }
 

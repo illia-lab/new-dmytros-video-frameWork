@@ -7,12 +7,17 @@ export type CollectionActionType<Where = any, Visible = any, Action = any> = {
   _where?: Where;
   _whereNot?: Where;
   _visible?: Visible;
-  _indexe?: number | number[];
+  _indexes?: number | number[];
   _ignoreIndexes?: number | number[];
 };
 
 export type CollectionWaitingType<Where = any, Visible = any, Action = any, ToCompare = any> =
   | (CollectionActionType<Where, Visible, Action> & { length?: string | number })
+  | ToCompare
+  | ToCompare[];
+
+export type CollectionWaitingContentType<Where = any, Visible = any, Action = any, ToCompare = any> =
+  | (CollectionActionType<Where, Visible, Action> & { length?: string | number } & Where)
   | ToCompare
   | ToCompare[];
 
@@ -122,18 +127,20 @@ class Collection {
 
     await children[0].action(objData?._action || null);
   }
+
   async get(objData) {
     const children = await this.getRequiredCollectionItem(objData || {});
 
     return asyncMap(children, (child) => {
-      return child.get(objData || {});
+      return child.get(objData?._action || {});
     });
   }
+
   async isDisplayed(objData) {
     const children = await this.getRequiredCollectionItem(objData || {});
 
     return asyncMap(children, (child) => {
-      return child.isDisplayed(objData || {});
+      return child.isDisplayed(objData?._action || {});
     });
   }
 }
