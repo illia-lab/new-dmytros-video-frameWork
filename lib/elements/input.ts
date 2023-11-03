@@ -3,7 +3,7 @@ import { BaseElement } from '../base/base.element';
 
 export type InputAction = 'click' | 'focus' | null;
 export type InputGetRes = string;
-export type InputSendKeys = string;
+export type InputSendKeys = string | number;
 export type InputIsDispRes = boolean;
 
 class Input extends BaseElement {

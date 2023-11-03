@@ -1,15 +1,18 @@
 import { BasePage } from '../../../lib';
 import { HeaderFragment } from './fragments/header';
 import { LoginFragment } from './fragments/login';
+import { RegistrationFragment } from './fragments/registration';
 
 class MainPage extends BasePage {
   login;
   header;
+  registration;
   constructor() {
-    super('[id="main_page"]', 'Main page');
+    super('#main_page', 'Main page');
 
     this.header = this.init('.main_header', 'Header Fragment', HeaderFragment);
     this.login = this.init('.login_form', 'Login Fragment ', LoginFragment);
+    this.registration = this.init('.registration_form', 'Registration Fragment', RegistrationFragment);
   }
 }
 
