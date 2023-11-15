@@ -92,7 +92,6 @@ class BasePage extends BaseLayer {
 
         errMessage = message;
 
-
         return result;
       },
       {
@@ -102,6 +101,5 @@ class BasePage extends BaseLayer {
       },
     );
   }
-
 }
 export { BasePage };

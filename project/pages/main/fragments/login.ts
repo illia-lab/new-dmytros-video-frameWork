@@ -7,8 +7,8 @@ class LoginFragment extends BaseFragment {
   loginButton;
   constructor(root, id) {
     super(root, id);
-    this.username = this.init('[placeholder="User name"]', 'User name', Input);
-    this.password = this.init('[placeholder="Password"]', 'Password ', Input);
+    this.username = this.init('[placeholder="Імʼя користувача"]', 'User name', Input);
+    this.password = this.init('[placeholder="пароль"]', 'Password ', Input);
     this.loginButton = this.init('button', 'Login button', Button);
   }
 }

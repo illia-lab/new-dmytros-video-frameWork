@@ -4,7 +4,8 @@ import { browser } from '../_engine';
 export type CheckBoxGetRes = boolean;
 export type CheckBoxIsDispRes = boolean;
 export type CheckBoxSendKeys = boolean;
-export type CheckBoxAction = null;
+export type CheckBoxAction = 'click' | 'focus' | null;
+export type CheckBoxContent = boolean;
 
 class CheckBox extends BaseElement {
   constructor(root, name) {

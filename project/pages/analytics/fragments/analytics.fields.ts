@@ -5,6 +5,7 @@ class AnalyticsFieldsFragment extends BaseFragment {
   machinesQuantity;
   workVolumeStats;
   priceStats;
+
   constructor(root, id) {
     super(root, id);
     this.machinesQuantity = this.init('.analytics_info_field.alert.alert-primary.quantity', 'Machines Quantity', Text);

@@ -28,6 +28,59 @@ const baseElementsActionsDescription = {
       resultType: 'IsDispRes',
     },
   },
+  Text: {
+    action: {
+      entryType: 'Action',
+    },
+    get: {
+      entryType: 'Action',
+      resultType: 'GetRes',
+    },
+    isDisplayed: {
+      entryType: 'Action',
+      resultType: 'IsDispRes',
+    },
+    waitForVisibilityState: {
+      entryType: 'IsDispRes',
+    },
+    waitForContentState: {
+      entryType: 'Content',
+    },
+    _where: {
+      resultType: 'Content',
+    },
+    _visible: {
+      resultType: 'IsDispRes',
+    },
+  },
+  CheckBox: {
+    action: {
+      entryType: 'Action',
+    },
+    sendKeys: {
+      entryType: 'Action',
+    },
+    get: {
+      entryType: 'Action',
+      resultType: 'GetRes',
+    },
+    isDisplayed: {
+      entryType: 'Action',
+      resultType: 'IsDispRes',
+    },
+    waitForVisibilityState: {
+      entryType: 'IsDispRes',
+    },
+    waitForContentState: {
+      entryType: 'Content',
+    },
+    _where: {
+      resultType: 'Content',
+    },
+    _visible: {
+      resultType: 'IsDispRes',
+    },
+  },
   Button: {
     action: {
       entryType: 'Action',

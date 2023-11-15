@@ -2,7 +2,7 @@ import { browser } from '../_engine';
 import { BaseElement } from '../base/base.element';
 
 export type InputAction = 'click' | 'focus' | null;
-export type InputGetRes = string;
+export type InputGetRes = { text: string; placeholder: string };
 export type InputSendKeys = string | number;
 export type InputIsDispRes = boolean;
 
@@ -14,7 +14,12 @@ class Input extends BaseElement {
   async get() {
     await this.waitForRootVisible();
 
-    return await browser.executeScript((element) => element.value, this.root.getEngineElement());
+    return await browser.executeScript((element) => {
+      return {
+        text: element.value,
+        placeholder: element.placeholder,
+      };
+    }, this.root.getEngineElement());
   }
 
   async sendKeys(value) {

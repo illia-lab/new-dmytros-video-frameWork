@@ -13,13 +13,19 @@ class Text extends BaseElement {
 
   async get() {
     await this.waitForRootVisible();
-    const result = this.root.getText();
-    console.log(result);
+    const result = await this.root.getText();
+    return result.trim();
   }
 
   async click() {
     await this.waitForRootVisible();
-    const result = this.root.click();
+    await this.root.click();
+  }
+
+  async sendKeys() {
+    throw new Error(
+      `${this.id} with selector ${this.root.selector} was created as a Text element,Text does not have send keys`,
+    );
   }
 }
 
