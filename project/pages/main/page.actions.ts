@@ -53,6 +53,14 @@ async function onMainPagePerformOnRegistrationFragment<Tentry extends Tregistrat
   };
 
 
+type TonMainPageAction = {
+ chat?: ButtonAction
+}
+type TonMainPageActionResult = void
+async function onMainPagePerformOnPageElements<Tentry extends TonMainPageAction>(data: Tentry): Promise<TonMainPageActionResult> {
+  return await page.action(data);
+};
+
 /** ====================== action ================== */
 
 
@@ -111,6 +119,16 @@ async function onMainPageGetDataFromRegistrationFragment<Tentry extends Tregistr
   };
 
 
+type TonMainPageGet = {
+ chat?: ButtonAction
+}
+type TonMainPageGetResult = {
+ chat?: ButtonGetRes
+}
+async function onMainPageGetDataFromPageElements<Tentry extends TonMainPageGet>(data: Tentry): Promise<TresultBasedOnArgument<Tentry, TonMainPageGetResult>> {
+  return await page.get(data);
+};
+
 /** ====================== get ================== */
 
 
@@ -168,6 +186,16 @@ async function onMainPageGetVisibilityOfRegistrationFragment<Tentry extends Treg
 	return registration;
   };
 
+
+type TonMainPageIsDisplayed = {
+ chat?: ButtonAction
+}
+type TonMainPageIsDisplayedResult = {
+ chat?: ButtonIsDispRes
+}
+async function onMainPageGetVisibilityOfPageElements<Tentry extends TonMainPageIsDisplayed>(data: Tentry): Promise<TresultBasedOnArgument<Tentry, TonMainPageIsDisplayedResult>> {
+  return await page.isDisplayed(data);
+};
 
 /** ====================== isDisplayed ================== */
 
@@ -241,6 +269,14 @@ async function onMainPageWaitForVisibilityStateRegistrationFragment<Tentry exten
   };
 
 
+type TonMainPageWaitForVisibilityState = {
+ chat?: ButtonIsDispRes
+}
+type TonMainPageWaitForVisibilityStateResult = boolean
+async function onMainPageWaitForVisibilityStatePageElements<Tentry extends TonMainPageWaitForVisibilityState>(data: Tentry, opts?: IWaitOpts): Promise<TonMainPageWaitForVisibilityStateResult> {
+  return await page.waitForVisibilityState(data, opts);
+};
+
 /** ====================== waitForVisibilityState ================== */
 
 
@@ -283,6 +319,14 @@ async function onMainPageWaitForContentStateRegistrationFragment<Tentry extends 
   };
 
 
+type TonMainPageWaitForContentState = {
+ chat?: ButtonContent
+}
+type TonMainPageWaitForContentStateResult = boolean
+async function onMainPageWaitForContentStatePageElements<Tentry extends TonMainPageWaitForContentState>(data: Tentry, opts?: IWaitOpts): Promise<TonMainPageWaitForContentStateResult> {
+  return await page.waitForContentState(data, opts);
+};
+
 /** ====================== waitForContentState ================== */
 
 
@@ -294,18 +338,23 @@ export {
     onMainPagePerformOnHeaderFragment,
   onMainPagePerformOnLoginFragment,
   onMainPagePerformOnRegistrationFragment,
+  onMainPagePerformOnPageElements,
   onMainPageGetDataFromHeaderFragment,
   onMainPageGetDataFromLoginFragment,
   onMainPageGetDataFromRegistrationFragment,
+  onMainPageGetDataFromPageElements,
   onMainPageGetVisibilityOfHeaderFragment,
   onMainPageGetVisibilityOfLoginFragment,
   onMainPageGetVisibilityOfRegistrationFragment,
+  onMainPageGetVisibilityOfPageElements,
   onMainPageSetValuesToLoginFragment,
   onMainPageSetValuesToRegistrationFragment,
   onMainPageWaitForVisibilityStateHeaderFragment,
   onMainPageWaitForVisibilityStateLoginFragment,
   onMainPageWaitForVisibilityStateRegistrationFragment,
+  onMainPageWaitForVisibilityStatePageElements,
   onMainPageWaitForContentStateHeaderFragment,
   onMainPageWaitForContentStateLoginFragment,
   onMainPageWaitForContentStateRegistrationFragment,
+  onMainPageWaitForContentStatePageElements,
   }

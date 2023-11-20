@@ -7,8 +7,8 @@ class AdminFragment extends BaseFragment {
 
   constructor(root, id) {
     super(root, id);
-    this.addNewUser = this.init('xpath=//button[text()="Add new user"]', 'add new user button', Button);
-    this.userList = this.init('xpath=//button[text()="Users list"]', 'users list button', Button);
+    this.addNewUser = this.init('xpath=//button[text()="Створити нового користувача"]', 'add new user button', Button);
+    this.userList = this.init('xpath=//button[text()="Список користувачів"]', 'users list button', Button);
   }
 }
 

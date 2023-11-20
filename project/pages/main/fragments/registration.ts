@@ -9,8 +9,8 @@ class RegistrationFragment extends BaseFragment {
   email;
   constructor(root, id) {
     super(root, id);
-    this.username = this.init('[placeholder="Імʼя користувача"]', 'User name', Input);
-    this.name = this.init('[placeholder="Імʼя"]', 'Name', Input);
+    this.username = this.init(`[placeholder="Ім'я користувача"]`, 'User name', Input);
+    this.name = this.init(`[placeholder="Ім'я"]`, 'Name', Input);
     this.password = this.init('[placeholder="пароль"]', 'пароль ', Input);
     this.registerButton = this.init('button', 'Registration Button', Button);
     this.email = this.init('[placeholder="Імейл"]', 'email', Input);

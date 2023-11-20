@@ -10,9 +10,9 @@ class HeaderFragment extends BaseFragment {
   constructor(root, id) {
     super(root, id);
 
-    this.analytics = this.init('[href="/analytics"]', 'Analytics', Button);
-    this.combines = this.init('[href="/combaines"]', 'Combines', Button);
-    this.adminPanel = this.init('[href="/admin"]', 'Admin panel', Button);
+    this.analytics = this.init('xpath=//button[text()="До аналітики"]', 'Analytics', Button);
+    this.combines = this.init('xpath=//button[text()="До комбайнів"]', 'Combines', Button);
+    this.adminPanel = this.init('xpath=//button[text()="До адмін кабінету"]', 'To admin office', Button);
     this.LogOut = this.init('button.logout', 'Log out', Button);
   }
 }

@@ -9,9 +9,9 @@ class FilterFragment extends BaseFragment {
 
   constructor(root, id) {
     super(root, id);
-    this.filterManufacturer = this.init('[placeholder="Manufacturer"]', 'filter manufacturer', Input);
-    this.filterWorkVolume = this.init('[placeholder="Work volume"]', 'filter work volume', Input);
-    this.filterPrice = this.init('[placeholder="Price"]', 'filter price', Input);
+    this.filterManufacturer = this.init('[placeholder="Виробник"]', 'filter manufacturer', Input);
+    this.filterWorkVolume = this.init(`[placeholder="Робочий об'єм"]`, 'filter work volume', Input);
+    this.filterPrice = this.init('[placeholder="Ціна"]', 'filter price', Input);
     this.filterButton = this.init('xpath=//*[@id="table_page"]/button', 'filter Button', Button);
   }
 }
